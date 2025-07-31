@@ -1,8 +1,5 @@
 FROM jenkins/jenkins:2.452.4-jdk11
 
-# Set JVM heap memory to 4GB
-ENV JAVA_OPTS="-Xmx4g -Xms2g"
-
 USER root
 
 # Install Firefox and other requirements 
