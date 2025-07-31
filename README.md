@@ -1,40 +1,73 @@
-# docker-jenkins-automation
-Docker file that is uses Jenkins as base image and installs Firefox.
-It has a sample Selenium Python script that prints the title of the demostore page.
+# Jenkins Firefox Docker Image
 
-Notes:
-* Image is built for both platforms `linux/amd64` and `linux/arm64` and pushed to Docker Hub
-* supersqa/jenkins-firefox is the image in Docker Hub
-* To run the image on Mac with silicon chip must add `--platfrom=linux/amd64` option
+A Docker image containing Jenkins with Firefox and Selenium for automated testing.
 
-## Build the image
-Just run the `build_image.sh` script. This will build the image for both platforms and pushs it to Docker Hub.
-If the script is not modified it will build image tagged `supersqa/jenkins-firefox`
-```
-bash build_image.sh
+## 🚀 Quick Start
+
+### For Students (Local Development)
+
+**Mac:**
+```bash
+./build_and_test_mac.sh
 ```
 
-## Run a container
-If on Mac with M1/2 chip
-```
-docker run --platform linux/amd64 supersqa/jenkins-firefox
-```
-
-or
-```
-bash run_container.sh
-```
-If not
-```
-docker run supersqa/jenkins-firefox
+**Windows:**
+```cmd
+build_and_test_windows.bat
 ```
 
-Use volume to run other selenium script.
-For example create a Selenium script in the `selenium_examples` folder.
+### For Developers (Publishing to Docker Hub)
+
+**Mac:**
+```bash
+./build_test_and_push_mac.sh
 ```
-docker run -it --platform linux/amd64 -v ./<path on local>:/<path to in container> supersqa/jenkins-firefox /myenv/bin/python3 /<path to in container>.py
+
+**Ubuntu:**
+```bash
+./build_test_and_push_ubuntu.sh
 ```
-Example
+
+## 📁 Build Scripts
+
+### Local Development (No Docker Hub Account Required)
+- `build_and_test_mac.sh` - Build and test locally on Mac
+- `build_and_test_windows.bat` - Build and test locally on Windows
+
+### Publishing (Requires Docker Hub Account)
+- `build_test_and_push_mac.sh` - Build, test, and push to Docker Hub from Mac
+- `build_test_and_push_ubuntu.sh` - Build, test, and push to Docker Hub from Ubuntu
+
+## 🐳 What's Included
+
+- **Jenkins** (latest LTS version)
+- **Firefox** browser for Selenium testing
+- **Python** with Selenium library
+- **Geckodriver** (Firefox WebDriver)
+- **Selenium test examples** in `selenium_examples/`
+
+## 🏃‍♂️ Running the Container
+
+After building, run Jenkins:
+
+```bash
+docker run -p 8080:8080 -p 50000:50000 jenkins-firefox:latest
 ```
-docker run -it --platform linux/amd64 -v ./selenium_examples:/selenium_examples supersqa/jenkins-firefox /myenv/bin/python3 /selenium_examples/selenium_firefox_example2.py
+
+Run Selenium tests:
+
+```bash
+docker run --rm jenkins-firefox:latest bash -c ". myenv/bin/activate && python selenium_examples/selenium_firefox_example.py"
 ```
+
+## 📋 Requirements
+
+- Docker Desktop installed and running
+- Internet connection (for initial download)
+- Docker Hub account (only for publishing scripts)
+
+## 🎯 Use Cases
+
+- **Students**: Use local build scripts for learning and development
+- **Developers**: Use publishing scripts to share images with the community
+- **CI/CD**: Use the Docker image in automated testing pipelines
