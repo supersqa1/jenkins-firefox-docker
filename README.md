@@ -183,7 +183,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 4c4 Platform-Specific Instructions
+## Platform-Specific Instructions
 
 ### Mac
 - Ensure Docker Desktop is installed and running.

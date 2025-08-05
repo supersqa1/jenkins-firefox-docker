@@ -19,15 +19,21 @@ To run this image as a proper Jenkins controller, you must mount a volume to per
 
 The recommended approach is to use a **bind mount**, which maps a directory from your local machine into the container.
 
+### Mac/Linux
 ```bash
-# This command will create a 'jenkins_data' directory in your current folder for persistence.
 docker run -p 8080:8080 -p 50000:50000 -v $(pwd)/jenkins_data:/var/jenkins_home supersqa/jenkins-firefox
 ```
 
-**Breakdown of the command:**
+### Windows
+```cmd
+docker run -p 8080:8080 -p 50000:50000 -v %cd%\jenkins_data:/var/jenkins_home supersqa/jenkins-firefox
+```
+
+### Breakdown of the command:
 * `-p 8080:8080`: Maps the Jenkins web UI port to your host machine.
 * `-p 50000:50000`: Maps the agent communication port.
-* `-v $(pwd)/jenkins_data:/var/jenkins_home`: Creates a directory named `jenkins_data` in your current location and maps it to the Jenkins home directory inside the container. This is how your data is persisted.
+* `-v $(pwd)/jenkins_data:/var/jenkins_home` (Mac/Linux): Creates a directory named `jenkins_data` in your current location and maps it to the Jenkins home directory inside the container. This is how your data is persisted.
+* `-v %cd%\jenkins_data:/var/jenkins_home` (Windows): Maps a directory named `jenkins_data` in your current directory to the Jenkins home directory inside the container, ensuring data persistence.
 * `supersqa/jenkins-firefox`: The name of the Docker image.
 
 After running the command, access Jenkins at `http://localhost:8080`.
@@ -90,7 +96,7 @@ SuperSQA is your source for learning QA automation and becoming an SDET. Find tu
 
 ---
 
-## 4c4 Platform-Specific Instructions
+## Platform-Specific Instructions
 
 ### Mac
 - Ensure Docker Desktop is installed and running.
