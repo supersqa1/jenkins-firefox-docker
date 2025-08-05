@@ -87,3 +87,46 @@ SuperSQA is your source for learning QA automation and becoming an SDET. Find tu
 
 * **Website:** [supersqa.com](https://supersqa.com)
 * **YouTube Channel:** [Visit our YouTube Channel!](https://www.youtube.com/@supersqa)
+
+---
+
+## 4c4 Platform-Specific Instructions
+
+### Mac
+- Ensure Docker Desktop is installed and running.
+- Use the following command to start the Jenkins container:
+  ```bash
+  docker run -p 8080:8080 -p 50000:50000 -v $(pwd)/jenkins_data:/var/jenkins_home supersqa/jenkins-firefox
+  ```
+
+### Windows
+- Ensure Docker Desktop is installed and running.
+- Use the following command in Command Prompt:
+  ```cmd
+  docker run -p 8080:8080 -p 50000:50000 -v %cd%\jenkins_data:/var/jenkins_home supersqa/jenkins-firefox
+  ```
+
+### Linux
+- Ensure Docker is installed and running.
+- Use the following command to start the Jenkins container:
+  ```bash
+  docker run -p 8080:8080 -p 50000:50000 -v $(pwd)/jenkins_data:/var/jenkins_home supersqa/jenkins-firefox
+  ```
+
+---
+
+## 4c4 Consistency and Cross-Referencing
+
+For more detailed platform-specific build and test scripts, refer to the main [README.md](README.md) file.
+
+---
+
+## 4c4 Visual Enhancements
+
+Consider adding diagrams or flowcharts to illustrate the setup process or architecture. This can be done using tools like [Mermaid](https://mermaid-js.github.io/mermaid/#/) for markdown-based diagrams.
+
+---
+
+## 4c4 User Feedback
+
+We welcome your feedback and contributions! Feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/supersqa1/jenkins-firefox-docker).
