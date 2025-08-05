@@ -180,3 +180,46 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Happy testing! 🚀**
+
+---
+
+## Platform-Specific Instructions
+
+### Mac
+- Ensure Docker Desktop is installed and running.
+- Use the following command to start the Jenkins container:
+  ```bash
+  docker run -p 8080:8080 -p 50000:50000 -v $(pwd)/jenkins_data:/var/jenkins_home jenkins-firefox:latest
+  ```
+
+### Windows
+- Ensure Docker Desktop is installed and running.
+- Use the following command in Command Prompt:
+  ```cmd
+  docker run -p 8080:8080 -p 50000:50000 -v %cd%\jenkins_data:/var/jenkins_home jenkins-firefox:latest
+  ```
+
+### Linux
+- Ensure Docker is installed and running.
+- Use the following command to start the Jenkins container:
+  ```bash
+  docker run -p 8080:8080 -p 50000:50000 -v $(pwd)/jenkins_data:/var/jenkins_home jenkins-firefox:latest
+  ```
+
+---
+
+## 4c4 Consistency and Cross-Referencing
+
+For more detailed Docker-specific instructions, refer to the [README_DOCKERHUB.md](README_DOCKERHUB.md) file.
+
+---
+
+## 4c4 Visual Enhancements
+
+Consider adding diagrams or flowcharts to illustrate the setup process or architecture. This can be done using tools like [Mermaid](https://mermaid-js.github.io/mermaid/#/) for markdown-based diagrams.
+
+---
+
+## 4c4 User Feedback
+
+We welcome your feedback and contributions! Feel free to open issues or submit pull requests on our [GitHub repository](https://github.com/supersqa1/jenkins-firefox-docker).
